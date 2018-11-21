@@ -3,6 +3,7 @@
 ## Ausführung und Installation mittels Visual Studio Code
 
 ### Hilfsfunktionen für VS Code
+- https://code.visualstudio.com/docs/getstarted/tips-and-tricks
 - https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 - https://code.visualstudio.com/docs/getstarted/keybindings
 - Aufruf durch F1
@@ -16,7 +17,7 @@ Installationen durchführen für folgende Extensions:
 - npm
 - TSLint
 - Material Icon Theme
-- XML Tools
+- CSS Formatter
 - Deutsches Studio falls gewünscht
     - German Language Pack for Visual Studio Code
     - sonst ist Englisch der empfohlene Standard
@@ -25,6 +26,13 @@ Installationen durchführen für folgende Extensions:
 
 ### Emmet Cheatsheets
 - https://docs.emmet.io/cheat-sheet/
+
+### Debugen in Angular
+- F5 betätigen
+- Chrome auswählen
+- Stoppen
+- Erzeugte launch.js editieren und den Port auf 4200 anpassen
+- Erneut F5 betätigen
 
 ### TypeScript
 Installation:  
@@ -76,6 +84,9 @@ Eingabe im Terminal
 ng serve -o
 ```
 Website wird auf dem Server gestartet und geöffnet
+
+#### Cheatsheet
+- https://angular.io/guide/cheatsheet
 
 ## JavaScript
 Wie ein Dictionary aufgebaut:
@@ -298,7 +309,43 @@ Model-View-ViewModel
         addTodo() {  } -> OK Button-Aktion
         ```
 
-#### Databinding
+#### Bindings
+
+##### Data-/Attribute-Binding
 - In der .ts-Klasse gibt man die Eigenschaften an, an die man über das HTML Dokumente mittels z.B. {{ }} binden kann
     - Interpolation-Binding
     - One-Way Binding (Das ViewModel schickt die Daten an das View, nicht umgekehrt)
+- Im HTML Dokument kann man nun an das Model binden
+    - OneWay Binding
+        ```typescript
+        [value]="todoText"
+        ```
+        oder direkt
+        ```typescript
+        {{todoText}}
+        ```
+    
+    - TwoWay Binding (mittels Directives)
+        ```typescript
+        [(ngModel)]="todoText"
+        ```
+
+#### Directives
+Vergleichbar mit Markup Extensions
+- Vorhandene HTML-Elemente um Logik erweitern
+- Einbinden von FormsModule in der app.module.ts
+    - https://angular.io/api/forms/NgModel
+
+##### Event-Binding
+- OneWay Binding 
+    Setzen von () um das Event
+    ```typescript
+    <button (click)="addTodo()">
+    ```
+
+#### Listen durchlaufen
+```typescript
+<li *ngFor="let todo of todos; let i = index">
+    {{ todo }} <button (click)="removeTodo(i)">X</button>
+</li>
+```

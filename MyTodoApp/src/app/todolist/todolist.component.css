@@ -1,0 +1,46 @@
+ /* Typ Selector */
+
+ div h3 {
+   background-color: white;
+ }
+
+ /* Classen Selector */
+
+ .myClass {
+   background-color: green;
+ }
+
+ /* ID Selector */
+
+ #myId {
+   background-color: lightblue;
+ }
+
+ input {
+   margin-right: 5px;
+   margin-bottom: 5px;
+ }
+
+ span {
+   margin-right: 5px;
+ }
+
+ li {
+   width: 200px;
+ }
+
+ li>button {
+   float: right;
+ }
+
+ li:nth-child(odd) {
+   background-color: lightgreen;
+ }
+
+ li:nth-child(even) {
+   background-color: lightblue;
+ }
+
+ .selectItem {
+   background-color: lightgrey !important;
+ }
