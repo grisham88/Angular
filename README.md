@@ -23,7 +23,10 @@ Installationen durchführen für folgende Extensions:
         - über F1 kann mittels "> Configure Display Language" die Spracheinstellung geändert werden
 - Über Datei bzw. File, Automatische Speichern/Autosave aktivieren
 
-### Typescript
+### Emmet Cheatsheets
+- https://docs.emmet.io/cheat-sheet/
+
+### TypeScript
 Installation:  
 - https://code.visualstudio.com/docs/languages/typescript
 - The easiest way to install TypeScript is through npm, the Node.js Package Manager. If you have npm installed, you can install TypeScript globally (-g) on your computer by:
@@ -184,6 +187,26 @@ Which stylesheet format would you like to use?
 -> mittels Pfeiltaste auswählen und bestätigen
 ```
 
+### Anlage einer Komponente
+```html
+ng generate component todolist
+```
+oder
+```html
+ng g c todolist
+```
+Erzeugt folgende Dateien
+```html
+CREATE src/app/todolist/todolist.component.html (27 bytes)
+CREATE src/app/todolist/todolist.component.spec.ts (642 bytes)
+CREATE src/app/todolist/todolist.component.ts (277 bytes)
+CREATE src/app/todolist/todolist.component.css (0 bytes)
+```
+Trägt die Komponente im App Module ein
+```html
+UPDATE src/app/app.module.ts (404 bytes)
+```
+
 ### Wechseln zum Projekt
 Eingabe im Terminal:
 ```html
@@ -238,10 +261,14 @@ Vergleichbar mit Assemblies
 
 #### Component
 Vergleichbar mit UserControls
-- Eigene HTML-Elemente
-- Annotation @Component definiert das Component  in der app.component.ts
-    - In welchen Knotenpunkt soll die Komponente in der index.html eingehängt werden
-        - selector
+- Sind eigenständige HTML-Elemente
+- Annotation @Component definiert das Component in der app.component.ts
+    - selector
+        - Name mit dem man die Komponente einbinden kann
+        - z.b. 
+        ```typescript 
+        <app-root>
+        ```
     - Inhaltsherkunft
         - templateUrl
     - Designherkunft der styles für die component
@@ -251,3 +278,27 @@ Vergleichbar mit UserControls
     - Nav
     - Content
     - Footer
+
+#### MVVM
+Model-View-ViewModel
+
+- View -> HTML Dokument
+- ViewModel
+    - todoText:string
+        - TextBox
+    - todos[]
+        - Liste in HTML
+    - addTodo()
+        - OK Button zum hinzufügen
+- Model (Services)
+    - Wird in der Datei .ts in er Klasse beschrieben
+        ```typescript
+        todoText = ''; -> TextBox
+        todos: string[] = []; -> Liste
+        addTodo() {  } -> OK Button-Aktion
+        ```
+
+#### Databinding
+- In der .ts-Klasse gibt man die Eigenschaften an, an die man über das HTML Dokumente mittels z.B. {{ }} binden kann
+    - Interpolation-Binding
+    - One-Way Binding (Das ViewModel schickt die Daten an das View, nicht umgekehrt)
