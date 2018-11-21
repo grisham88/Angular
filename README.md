@@ -82,13 +82,13 @@ var person = { name = "Name"};
 person.vorname = "Vorname";
 ```
 
-Daduch wird direkt die Eigenschaft vorname für das Objekt person erzeugt
+Dadurch wird direkt die Eigenschaft vorname für das Objekt person erzeugt
 
 ACHTUNG  
 Andersherum nicht möglich.
 
 ## TypeScript
-Kompiliert aus dem Typescript Code neuen ausführbaren Javascript Code.
+Kompiliert aus dem TypeScript Code neuen ausführbaren JavaScript Code.
 
 Code testen:  
 - http://www.typescriptlang.org/play/
@@ -105,8 +105,8 @@ xyz = 123
 ```
 
 Zuweisung des Strings zur Variable xyz macht die Variable zu einer String-Variable.  
-Nun sind alle Eingeschaften eines Typ Strings für die Variable verfügbar.  
-Erneute Zuweisung mit einem anderen Typ in Typescript per Standard nicht möglich.  Variable ist jetzt ein String.
+Nun sind alle Eigenschaften eines Typ Strings für die Variable verfügbar.  
+Erneute Zuweisung mit einem anderen Typ in TypeScript per Standard nicht möglich.  Variable ist jetzt ein String.
 
 #### Variablen-Typen
 ```typescript
@@ -122,7 +122,7 @@ undefined
 function foo(text: string, nummer: number): string | number
 {
     var x = "";
-    //Prüfung ob x leer ist wird mit false zurückgegeben wenn x == ""
+    //Prüfung ob x leer ist wird mit false zurückgegeben, wenn x == ""
     if(x){
 
     }
@@ -237,7 +237,7 @@ Vergleichbar mit Assemblies
         - Startpunkt der App
 
 #### Component
-Vergleichar mit UserControls
+Vergleichbar mit UserControls
 - Eigene HTML-Elemente
 - Annotation @Component definiert das Component  in der app.component.ts
     - In welchen Knotenpunkt soll die Komponente in der index.html eingehängt werden
