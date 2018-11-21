@@ -2,6 +2,27 @@
 
 ## Ausführung und Installation mittels Visual Studio Code
 
+### Hilfsfunktionen für VS Code
+- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+- https://code.visualstudio.com/docs/getstarted/keybindings
+- Aufruf durch F1
+    - Wenn > hinterlegt ist, werden Funktionen aufgeführt
+    - Ohne > kann man nach Dateien suchen
+
+### Extensions für VS Code
+Installationen durchführen für folgende Extensions:
+- Angular Language Service
+- Debugger for Chrome
+- npm
+- TSLint
+- Material Icon Theme
+- XML Tools
+- Deutsches Studio falls gewünscht
+    - German Language Pack for Visual Studio Code
+    - sonst ist Englisch der empfohlene Standard
+        - über F1 kann mittels "> Configure Display Language" die Spracheinstellung geändert werden
+- Über Datei bzw. File, Automatische Speichern/Autosave aktivieren
+
 ### Typescript
 Installation:  
 - https://code.visualstudio.com/docs/languages/typescript
@@ -9,9 +30,9 @@ Installation:
 
 ```html
 npm install -g typescript
-
+```
 You can test your install by checking the version or help.
-
+```html
 tsc --version
 tsc --help
 ```
@@ -30,21 +51,28 @@ Beispiel: node "typescript - example.js"
 ```
 
 ### Angular
-Installation:  
+#### Installation  
 Eingabe im Terminal
 ```html
 npm install -g angular-cli
-
+```
 oder
-
+```html
 npm install @angular/cli --global
 ```
 
-Prüfung der Installation:  
+#### Prüfung der Installation 
 Eingabe im Terminal
 ```html
 ng --version
 ```
+
+#### Server für das Angular Projekt starten
+Eingabe im Terminal
+```html
+ng serve -o
+```
+Website wird auf dem Server gestartet und geöffnet
 
 ## JavaScript
 Wie ein Dictionary aufgebaut:
@@ -142,6 +170,8 @@ foo({ name: "Text", city: "Nuremberg"});
 ```
 
 ## Angular
+Kürzel ng für Angular
+
 ### Anlage eins Projekts
 Eingabe im Terminal:
 ```html
@@ -151,5 +181,73 @@ Frage "Would you like to add Angular routing? (y/N)"
 -> mit "n" beantworten
 
 Which stylesheet format would you like to use? 
--> mittels Pfeiltaste auswählen
+-> mittels Pfeiltaste auswählen und bestätigen
 ```
+
+### Wechseln zum Projekt
+Eingabe im Terminal:
+```html
+- Wechseln über "cd MyTodoApp" in das Verzeichnis
+- Mittels "code ." das Projekt in Visual Studio Code eigenständig öffnen
+```
+
+### Aufbau des Projekts
+- e2e
+    - end-to-end tests vorinstalliert
+- node_modules
+    - Hilfsmodule
+- src
+    - Applikationscode
+        - app
+    - Umgebungsvariablen
+        - environments
+    - Einstiegspunkt der Applikation
+        - main.ts
+    - Rest
+- Rest
+    - Konfigurationsdateien
+        - Versionsverwaltung
+            - .gitignore
+        - Konfigurationsdatei des Projekts für den workspace
+            - angular.json
+            - https://nitayneeman.com/posts/understanding-the-angular-cli-workspace-file/
+        - Sicherheit und Installierte packages für das Projekt
+            - package-lock.json
+            - package.json
+        - Hilfe zum Projekt
+            - README.md
+        - Konfigurationsdatei für den TypeScript-Compiler
+            - tsconfig.json
+        - Konfigurationsdatei für TSLint
+            - tslint.json 
+
+### Angular Anatomie
+
+#### Module
+Vergleichbar mit Assemblies
+- Ausführbar (*.exe)
+    - Application Module
+- Teilbar (*.dll)
+    - Shared Module, Feature Module
+- Annotation @NgModule definiert das Module in der app.module.ts
+    - declarations
+    - imports
+    - providers
+    - bootstrap
+        - Startpunkt der App
+
+#### Component
+Vergleichar mit UserControls
+- Eigene HTML-Elemente
+- Annotation @Component definiert das Component  in der app.component.ts
+    - In welchen Knotenpunkt soll die Komponente in der index.html eingehängt werden
+        - selector
+    - Inhaltsherkunft
+        - templateUrl
+    - Designherkunft der styles für die component
+        - styleUrls
+- Arten: 
+    - Header
+    - Nav
+    - Content
+    - Footer
