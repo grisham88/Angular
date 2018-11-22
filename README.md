@@ -238,6 +238,24 @@ UPDATE src/app/app.module.ts (568 bytes)
 ```
 Kann anschließend als Attribut in allen Elementen genutzt werden
 
+### Anlage einer Pipe
+```html
+ng generate directive AutoInputWidth
+```
+oder
+```html
+ng g p myuppercase
+```
+Erzeugt folgende Dateien
+```html
+CREATE src/app/myuppercase.pipe.spec.ts (207 bytes)
+CREATE src/app/myuppercase.pipe.ts (211 bytes)
+```
+Trägt die Pipe im App Module ein
+```html
+UPDATE src/app/app.module.ts (643 bytes)
+```
+Kann anschließend als neue Pipe in den Bindings genutzt werden und eigene Konvertierungen angeben.
 
 ### Wechseln zum Projekt
 Eingabe im Terminal:
@@ -350,6 +368,11 @@ Model-View-ViewModel
         ```typescript
         [(ngModel)]="todoText"
         ```
+##### Pipe Features
+```typescript
+{{todo | uppercase}}
+```
+Ermöglich, dass Bindings an dieser Stelle wie gewünscht dargestellt werden. In diesem Fall immer alle Buchstaben groß
 
 #### Directives (TwoWayBinding)
 Vergleichbar mit Markup Extensions

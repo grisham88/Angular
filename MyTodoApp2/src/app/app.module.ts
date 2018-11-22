@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { AutoInputWidthDirective } from './auto-input-width.directive';
+import { MyuppercasePipe } from './myuppercase.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
-    AutoInputWidthDirective
+    AutoInputWidthDirective,
+    MyuppercasePipe
   ],
   imports: [
     BrowserModule,
