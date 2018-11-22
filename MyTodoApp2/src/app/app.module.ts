@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
+import { AutoInputWidthDirective } from './auto-input-width.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    AutoInputWidthDirective
   ],
   imports: [
     BrowserModule,

@@ -219,6 +219,26 @@ Trägt die Komponente im App Module ein
 UPDATE src/app/app.module.ts (404 bytes)
 ```
 
+### Anlage einer Direktive
+```html
+ng generate directive AutoInputWidth
+```
+oder
+```html
+ng g d AutoInputWidth
+```
+Erzeugt folgende Dateien
+```html
+CREATE src/app/auto-input-width.directive.spec.ts (258 bytes)
+CREATE src/app/auto-input-width.directive.ts (157 bytes)
+```
+Trägt die Directive im App Module ein
+```html
+UPDATE src/app/app.module.ts (568 bytes)
+```
+Kann anschließend als Attribut in allen Elementen genutzt werden
+
+
 ### Wechseln zum Projekt
 Eingabe im Terminal:
 ```html
@@ -395,3 +415,49 @@ $("h1")
 ```
 ACHTUNG  
 Im Vergleich dauert jQuery zum DOM-Zugriff zum Teil 40 mal länger
+
+#### Arguments/Parameter
+```typescript
+function foo(paramA, paramB = "Kein Wert", paramC = "Kein Wert")
+{
+    console.log(paramA);
+    console.log(paramB);
+    console.log(paramC);
+}
+
+foo("Hallo", "Welt");
+//Hallo
+//Welt
+//Kein Wert
+
+var values =["Hallo", "Welt", "Wuhuu", "abc"]
+foo(...values);
+//Hallo
+//Welt
+//Wuhuu
+```
+- ... ermöglicht beliebig viele Parameter mitzugeben  
+- https://www.typescriptlang.org/docs/handbook/functions.html
+
+#### Dependency Injection
+- Übernimmt die Instanzierung von Klassen automatisch
+- https://angular.io/guide/dependency-injection
+
+#### Directiven
+```typescript
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appAutoInputWidth]'
+})
+
+export class AutoInputWidthDirective {
+  inputElement: HTMLInputElement;
+
+  constructor(elementRef: ElementRef) {
+    this.inputElement = elementRef.nativeElement;
+  }
+```
+- Das ElementRef weiß nicht von welchem Typ es ist, somit kann man nicht auf die Eigenschaften zugreifen.  
+Durch die Deklarierung eines Objekts vom erwarteten Typ und der Übernahme des nativeElement in das deklarierte Objekt ist ein Zugriff auf alle Eigenschaften möglich.  
+Dadurch wird Typsicherheit ermöglicht.

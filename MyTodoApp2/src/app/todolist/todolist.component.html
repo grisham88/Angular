@@ -1,6 +1,6 @@
 <div *ngIf="!isEditMode">
   <h3>Neues Todo:</h3>
-  <input type="text" [(ngModel)]="todoText" (keyup.enter)="addTodo()">
+  <input appAutoInputWidth type="text" [(ngModel)]="todoText" (keyup.enter)="addTodo()">
   <button (click)="addTodo()">OK</button>
 </div>
 <div *ngIf="isEditMode">
