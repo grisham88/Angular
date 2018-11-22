@@ -2,6 +2,10 @@
 
 ## Ausführung und Installation mittels Visual Studio Code
 
+### ACHTUNG 
+Nutzung des Projekts
+Nach Abruf über git, bitte npm install oder npm update im Terminal durchführen, dann werden alle Module nachgeladen die notwendig sind
+
 ### Hilfsfunktionen für VS Code
 - https://code.visualstudio.com/docs/getstarted/tips-and-tricks
 - https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
@@ -188,7 +192,7 @@ foo({ name: "Text", city: "Nuremberg"});
 
 ## Angular
 Kürzel ng für Angular-cli
-
+exit
 ### Anlage eins Projekts
 Eingabe im Terminal:
 ```html
@@ -407,6 +411,7 @@ Model-View-ViewModel
 #### Bindings
 
 ##### Data-/Attribute-Binding
+Zur Kommunikation zwischen View und Model
 - In der .ts-Klasse gibt man die Eigenschaften an, an die man über das HTML Dokumente mittels z.B. {{ }} binden kann
     - Interpolation-Binding
     - One-Way Binding (Das ViewModel schickt die Daten an das View, nicht umgekehrt)
@@ -425,6 +430,7 @@ Model-View-ViewModel
         [(ngModel)]="todoText"
         ```
 ##### Pipe Features
+Daten formatieren beim Data Binding
 ```typescript
 {{todo | uppercase}}
 ```
@@ -557,6 +563,7 @@ var person2 = Object.assign({}, person)
 Dadurch wird eine Kopie von person angelegt, und das person2 Objekt ist komplett unabhängig von Änderungen des person-Objects.
 
 #### Services
+
 - Service anlegen mittels ng -> siehe Anlage Services
 - Nutzung von json2ts -> Erzeugtes Interface in der service.ts hinterlegen
     ```typescript
@@ -590,3 +597,56 @@ Dadurch wird eine Kopie von person angelegt, und das person2 Objekt ist komplett
     this.todoText = joke.value);
     ```
     Nun kann man auf das Property Value des Objekts zugreifen
+
+#### Routes
+Routen definieren unter app.module.ts mittels RouterModule
+```typescript
+import { RouterModule } from '@angular/router';
+@NgModule({
+  declarations: [...
+  ],
+  imports: [...
+    RouterModule.forRoot([
+      { path: '', component: TodolistComponent }
+    ])
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+```
+Dadurch wird mit dem path '' (Website Einstieg), definiert, dass die TodolistComponent angezeigt werden soll
+
+- RouterLink bei click markieren
+    ```typescript
+    <a routerLink="/" routerLinkActive="clicked" [routerLinkActiveOptions]="{ exact: true}">Home</a>
+    ```
+    ```css
+    .clicked {
+        background-color: gray;
+        color: white;
+        font-weight: bold;
+    }
+    ```
+- Routerlink über Event aufrufen
+    Aufruf mittels
+    ```typescript
+    <button (click)="goToAbout()">Gehe zu About</button>
+    ```
+    Zugehörige Funktion
+    ```typescript
+    import { Router } from '@angular/router';
+
+    export class TodolistComponent {
+
+    constructor(...
+        private router: Router) { }
+
+    goToAbout() {
+        this.router.navigate(['/about']);
+    }
+    ```
+- Undefinierte Routen
+    ```typescript
+    { path: '**', component: NotFoundComponent}
+    ```
+    Weitere Route definieren unter app.module.ts

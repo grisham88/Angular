@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { ChucknorrisService } from '../chucknorris.service';
+import { TrumpService } from '../trump.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css'],
-  providers: [ChucknorrisService]
+  providers: [ChucknorrisService,
+    TrumpService]
 })
 
 export class TodolistComponent {
@@ -15,10 +18,11 @@ export class TodolistComponent {
   isEditMode = false;
   indexTodoUpdate = -1;
   jokeText = '';
+  thoughts = '';
 
-  constructor(private chucknorrisServer: ChucknorrisService) {
-
-  }
+  constructor(private chucknorrisServer: ChucknorrisService,
+    private trumpService: TrumpService,
+    private router: Router) { }
 
   addTodo() {
     if (this.todoText) {
@@ -37,7 +41,10 @@ export class TodolistComponent {
     this.todos.splice(index, 1);
 
     this.chucknorrisServer.getJoke().subscribe(joke =>
-      this.todoText = joke.value);
+      this.jokeText = joke.value);
+
+    this.trumpService.getThoughts('Chuck Norris').subscribe(thoughts =>
+      this.thoughts = thoughts.message);
   }
 
   updateTodo() {
@@ -53,5 +60,9 @@ export class TodolistComponent {
 
   clearTodos() {
     this.todos = [];
+  }
+
+  goToAbout() {
+    this.router.navigate(['/about']);
   }
 }

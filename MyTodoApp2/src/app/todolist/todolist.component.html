@@ -12,4 +12,7 @@
 <app-listbox [(items)]="todos" (editItemClick)="editTodo($event)" (removeItemClick)="removeTodo($event)"
   (clearItemsClick)="clearTodos()">
 </app-listbox>
-<h3>{{ jokeText }}</h3>
+<h3 *ngIf="jokeText">About Chuck Norris: {{ jokeText }}</h3>
+<h3 *ngIf="thoughts">Trump thinks: {{ thoughts }}</h3>
+
+<button (click)="goToAbout()">Gehe zu About</button>
