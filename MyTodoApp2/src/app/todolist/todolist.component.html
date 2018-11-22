@@ -1,0 +1,24 @@
+<div *ngIf="!isEditMode">
+  <h3>Neues Todo:</h3>
+  <input type="text" [(ngModel)]="todoText" (keyup.enter)="addTodo()">
+  <button (click)="addTodo()">OK</button>
+</div>
+<div *ngIf="isEditMode">
+  <h3>Todo editieren:</h3>
+  <input type="text" [(ngModel)]="todoText" (keyup.enter)="updateTodo()">
+  <button (click)="updateTodo()">OK</button>
+</div>
+
+<h3 *ngIf="todos.length>0">Todos ({{todos.length}})</h3>
+<ul>
+  <li *ngFor="let todo of todos; let i = index" [ngClass]="{'hightlightli':this.indexTodoUpdate===i}">
+    <span (click)="editTodo(i)">{{i+1}}. {{todo}}</span>
+    <button (click)="removeTodo(i)" id="buttonDelete">
+      <img src="http://chittagongit.com//images/delete-icon-png-16x16/delete-icon-png-16x16-29.jpg" width="16" height="16">
+    </button>
+  </li>
+</ul>
+
+<div>
+  <button id="clearTodosButton" (click)="clearTodos()" *ngIf="todos.length>0">Todo Liste leeren</button>
+</div>
