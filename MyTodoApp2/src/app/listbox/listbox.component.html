@@ -1,0 +1,13 @@
+<div *ngIf="items.length>0">
+  <h3>Items ({{items.length}})</h3>
+  <ul>
+    <li *ngFor="let item of items; let i = index" [ngClass]="{'hightlightli':this.indexItemUpdate===i}">
+      <span (click)="editItem(i)">{{i+1}}. {{item | myuppercase}}</span>
+      <button (click)="removeItem(i)" id="buttonDelete">
+        <img src="http://chittagongit.com//images/delete-icon-png-16x16/delete-icon-png-16x16-29.jpg" width="16" height="16">
+      </button>
+    </li>
+  </ul>
+
+  <button (click)="clearItems()">Liste leeren</button>
+</div>

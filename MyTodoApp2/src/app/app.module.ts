@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { AutoInputWidthDirective } from './auto-input-width.directive';
 import { MyuppercasePipe } from './myuppercase.pipe';
+import { ListboxComponent } from './listbox/listbox.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
     AutoInputWidthDirective,
-    MyuppercasePipe
+    MyuppercasePipe,
+    ListboxComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

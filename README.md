@@ -19,6 +19,8 @@ Installationen durchführen für folgende Extensions:
 - TSLint
 - Material Icon Theme
 - CSS Formatter
+- json2ts
+    json kopieren und dann mittels STRG + ALT + X wird das Interface dazu eingetragen an der markierten Stelle
 - Deutsches Studio falls gewünscht
     - German Language Pack for Visual Studio Code
     - sonst ist Englisch der empfohlene Standard
@@ -185,7 +187,7 @@ foo({ name: "Text", city: "Nuremberg"});
 ```
 
 ## Angular
-Kürzel ng für Angular
+Kürzel ng für Angular-cli
 
 ### Anlage eins Projekts
 Eingabe im Terminal:
@@ -256,6 +258,60 @@ Trägt die Pipe im App Module ein
 UPDATE src/app/app.module.ts (643 bytes)
 ```
 Kann anschließend als neue Pipe in den Bindings genutzt werden und eigene Konvertierungen angeben.
+
+### Anlage eines Services
+```html
+ng generate service chucknorris
+```
+oder
+```html
+ng g s chucknorris
+```
+Erzeugt folgende Dateien
+```html
+CREATE src/app/chucknorris.service.spec.ts (358 bytes)
+CREATE src/app/chucknorris.service.ts (140 bytes)
+```
+Kann anschließend als neuer Service genutzt werden.
+ACHTUNG  
+Es muss nachträglich in den providers eingetragen werden, für die Komponente die ihn nutzen soll. Sollen es alle Komponenten nutzen, kann es in der app.module.ts hinterlegt werden.
+```html
+providers: [ChucknorrisService]
+```
+
+Hinterlegen von HttpClientModule unter app.module.ts
+```typescript
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  declarations: [...
+  ],
+  imports: [...
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+```
+
+Einbinden des HttpClient inder service.ts
+```typescript
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ChucknorrisService {
+
+  constructor(private httpClient: HttpClient) { }
+
+  getJoke() {
+    this.httpClient.get('https://api.chucknorris.io/jokes/random?category=category=dev');
+  }
+}
+```
+Der Service kann dann mittels private Deklarierung im constructor global genutzt werden
 
 ### Wechseln zum Projekt
 Eingabe im Terminal:
@@ -380,8 +436,6 @@ Vergleichbar mit Markup Extensions
 - Einbinden von FormsModule in der app.module.ts
     - https://angular.io/api/forms/NgModel
 
-
-
 ##### Event-Binding
 - OneWay Binding 
     Setzen von () um das Event
@@ -494,3 +548,45 @@ oder
 this.inputElement.style.width = width + "px";
 ```
 Ermöglicht das Einfügen von Variablen direkt in einem String 
+
+#### Objekte kopieren
+```typescript
+var person = {name: "Brendan Eich"};
+var person2 = Object.assign({}, person)
+```
+Dadurch wird eine Kopie von person angelegt, und das person2 Objekt ist komplett unabhängig von Änderungen des person-Objects.
+
+#### Services
+- Service anlegen mittels ng -> siehe Anlage Services
+- Nutzung von json2ts -> Erzeugtes Interface in der service.ts hinterlegen
+    ```typescript
+    import { Injectable } from '@angular/core';
+    import { HttpClient } from '@angular/common/http';
+
+    @Injectable({
+    providedIn: 'root'
+    })
+    export class ChucknorrisService {
+
+    constructor(private httpClient: HttpClient) { }
+
+    getJoke() {
+        return this.httpClient.get<Joke>('https://api.chucknorris.io/jokes/random?category=dev');
+    }
+    }
+
+    export interface Joke {
+    category: string[];
+    icon_url: string;
+    id: string;
+    url: string;
+    value: string;
+    }
+    ```
+    beim zurückgeben des Streams muss das Objekt bei get<> angegeben, dies wird mittels dem erzeugten interface ermöglicht.
+- Zugriff über component.ts
+    ```typescript
+    this.chucknorrisServer.getJoke().subscribe(joke =>
+    this.todoText = joke.value);
+    ```
+    Nun kann man auf das Property Value des Objekts zugreifen

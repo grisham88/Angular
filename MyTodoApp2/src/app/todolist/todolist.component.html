@@ -9,16 +9,7 @@
   <button (click)="updateTodo()">OK</button>
 </div>
 
-<h3 *ngIf="todos.length>0">Todos ({{todos.length}})</h3>
-<ul>
-  <li *ngFor="let todo of todos; let i = index" [ngClass]="{'hightlightli':this.indexTodoUpdate===i}">
-    <span (click)="editTodo(i)">{{i+1}}. {{todo | myuppercase}}</span>
-    <button (click)="removeTodo(i)" id="buttonDelete">
-      <img src="http://chittagongit.com//images/delete-icon-png-16x16/delete-icon-png-16x16-29.jpg" width="16" height="16">
-    </button>
-  </li>
-</ul>
-
-<div>
-  <button id="clearTodosButton" (click)="clearTodos()" *ngIf="todos.length>0">Todo Liste leeren</button>
-</div>
+<app-listbox [(items)]="todos" (editItemClick)="editTodo($event)" (removeItemClick)="removeTodo($event)"
+  (clearItemsClick)="clearTodos()">
+</app-listbox>
+<h3>{{ jokeText }}</h3>
