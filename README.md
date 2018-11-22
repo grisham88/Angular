@@ -461,3 +461,13 @@ export class AutoInputWidthDirective {
 - Das ElementRef weiß nicht von welchem Typ es ist, somit kann man nicht auf die Eigenschaften zugreifen.  
 Durch die Deklarierung eines Objekts vom erwarteten Typ und der Übernahme des nativeElement in das deklarierte Objekt ist ein Zugriff auf alle Eigenschaften möglich.  
 Dadurch wird Typsicherheit ermöglicht.
+
+#### String Templates
+```typescript
+this.inputElement.style.width = `${width}px`;
+```
+oder
+```typescript
+this.inputElement.style.width = width + "px";
+```
+Ermöglicht das Einfügen von Variablen direkt in einem String 
