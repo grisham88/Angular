@@ -9,6 +9,7 @@
 - Aufruf durch F1
     - Wenn > hinterlegt ist, werden Funktionen aufgeführt
     - Ohne > kann man nach Dateien suchen
+- STRG + B für Explorer links zuklappen
 
 ### Extensions für VS Code
 Installationen durchführen für folgende Extensions:
@@ -330,11 +331,13 @@ Model-View-ViewModel
         [(ngModel)]="todoText"
         ```
 
-#### Directives
+#### Directives (TwoWayBinding)
 Vergleichbar mit Markup Extensions
 - Vorhandene HTML-Elemente um Logik erweitern
 - Einbinden von FormsModule in der app.module.ts
     - https://angular.io/api/forms/NgModel
+
+
 
 ##### Event-Binding
 - OneWay Binding 
@@ -349,3 +352,46 @@ Vergleichbar mit Markup Extensions
     {{ todo }} <button (click)="removeTodo(i)">X</button>
 </li>
 ```
+
+#### Class zur Laufzeit setzen
+```typescript
+[ngClass]="{'selectItem': todoUpdateIndex === i}"
+```
+In den {} wird durch den Key der zugehörige Value abgefragt, dabei muss der Key -> selectItem in '' gesetzt sein.  
+Die Klasse die gesetzt werden soll, wird vor dem : gestellt.  
+Nach dem : wird die Bedingung gesetzt. Wird diese mit true zurückgegeben, wird die neue class für das Element gesetzt.
+
+#### Elemente anklicken und Events aufrufen
+```typescript
+ <span (click)="editTodo(i)">
+ ```
+ Es ist möglich auf jedem Element ein click-Event zu abonnieren.  
+ Dazu muss (click) gesetzt sein und dahinter die gewünschte Funktion die aufgerufen werden soll in "" gesetzt sein.
+
+ #### Structural Directives
+ - *-Anweisungen (https://angular.io/guide/structural-directives) 
+ - Manipulieren die Struktur (DOM)
+
+ - Beispiel  
+    If Anweisungen auf Basis des ViewModels
+    ```typescript
+    <div *ngIf="!isEditMode">
+    ```
+    Durch *ngIf können Abfragen gebaut werden, das Element in dem die Abfrage ausgeführt wird, kann dann entsprechend handeln.  
+    In diesem Fall wird das div nur angezeigt, wenn isEditMode, false ist.
+
+ #### Zugriff auf Elemente
+ Zugriff über DOM (native)
+```html
+<script>
+document.getElementsByName("div");
+</script>
+```
+Zugriff über jQuery
+```html
+<script>
+$("h1")
+</script>
+```
+ACHTUNG  
+Im Vergleich dauert jQuery zum DOM-Zugriff zum Teil 40 mal länger

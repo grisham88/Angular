@@ -23,14 +23,11 @@
 
  span {
    margin-right: 5px;
+   height: 12px;
  }
 
  li {
-   width: 200px;
- }
-
- li>button {
-   float: right;
+   align-content: center;
  }
 
  li:nth-child(odd) {
