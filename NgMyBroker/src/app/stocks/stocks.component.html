@@ -1,0 +1,24 @@
+<div *ngIf="stocks" id="stocks" class="row">
+
+  <div id="cardTemplate" class="col s12 m6" *ngFor="let stock of stocks; let i = index">
+    <div class="card hoverable blue darken-1">
+      <div class="card-content white-text">
+        <span class="card-title" style="margin-bottom: 0px;">{{ stock.name }} ({{ stock.symbol}})</span>
+        <div id="DateTime">{{ stock.lastTradeTime }}</div>
+
+        <div id="LastTradePrice" class="col s6" style="padding-left: 0;font-size: 22px;">{{ stock.lastTradePriceOnly }}
+          {{ stock.currency }}</div>
+        <div [ngClass]="{ red: stock.change < 0, green: stock.change >= 0}" id="Change" class="col offset-s2 s2">{{
+          stock.change }}</div>
+        <div [ngClass]="{ red: getNumberWithoutPercentage(stock.changeinPercent) < 0,
+           green: getNumberWithoutPercentage(stock.changeinPercent) >= 0}"
+          id="ChangeinPercent" class="col s2">{{
+          stock.changeinPercent }}</div>
+      </div>
+      <div class="card-action">
+        <a href="#">Merken</a>
+        <a href="#">Kaufen</a>
+      </div>
+    </div>
+  </div>
+</div>
