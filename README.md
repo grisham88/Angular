@@ -614,7 +614,7 @@ import { RouterModule } from '@angular/router';
   bootstrap: [AppComponent]
 })
 ```
-Dadurch wird mit dem path '' (Website Einstieg), definiert, dass die TodolistComponent angezeigt werden soll
+Dadurch wird mit dem path '' (Website Einstieg) definiert, dass die TodolistComponent angezeigt werden soll
 
 - RouterLink bei click markieren
     ```typescript
@@ -647,6 +647,9 @@ Dadurch wird mit dem path '' (Website Einstieg), definiert, dass die TodolistCom
     ```
 - Undefinierte Routen
     ```typescript
-    { path: '**', component: NotFoundComponent}
+    RouterModule.forRoot([
+        { ... },
+        { path: '**', component: NotFoundComponent }
+    ])
     ```
     Weitere Route definieren unter app.module.ts
