@@ -29,7 +29,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RouterModule.forRoot([
       { path: '', component: TodolistComponent },
       { path: 'about', component: AboutComponent },
-      { path: '**', component: NotFoundComponent}
+      { path: '**', component: NotFoundComponent }
     ])
   ],
   providers: [],

@@ -653,3 +653,78 @@ Dadurch wird mit dem path '' (Website Einstieg) definiert, dass die TodolistComp
     ])
     ```
     Weitere Route definieren unter app.module.ts
+
+ - Aktuelle Seite über Refresh erneut laden lassen  
+    - https://medium.com/engineering-on-the-incline/reloading-current-route-on-click-angular-5-1a1bfc740ab2  
+    - Alternative  
+        In app.component.ts
+        ```typescript 
+        //Service zur Verfügung stellen, der für Aktualisierung wichtig ist
+        constructor(private searchService: SearchService) { }
+
+        updateData() {
+            this.searchService.refresh.emit();
+        }
+        ```
+        In app.component.html
+        ```typescript 
+        (click)="updateData()"
+        ```
+        In allen gewünschten Componenten
+        ```typescript 
+        export class StocksComponent implements OnInit {
+            stocks: Stock[] = [];
+            //WICHTIG
+            private subscription: Subscription;
+
+            constructor(private stockPlacerholderService: StockPlacerholderService,
+                private searchService: SearchService) {
+                //WICHTIG
+                this.subscription = this.searchService.refresh.subscribe(() => {
+                this.ngOnInit();
+                });
+            }
+
+            ngOnInit() {
+                //WICHTIG
+                // Set default values and re-fetch any data you need.
+                const search: string = this.searchService.getSearchesAsPath();
+                if (search) {
+                this.stockPlacerholderService.getStock(search).subscribe(
+                    receivedStocks => {
+                    this.stocks = receivedStocks;
+                    }
+                );
+                }
+            }
+            
+            //WICHTIG
+            // tslint:disable-next-line:use-life-cycle-interface
+            ngOnDestroy() {
+                // avoid memory leaks here by cleaning up after ourselves.
+                this.subscription.unsubscribe();
+            }
+        }
+        ```
+
+
+#### Callbacks
+Sehr wichtiges Thema zum vertiefen
+- https://angular.de/artikel/angular2-observables/
+- https://angular.de/buecher/angularjs-buch/angularjs-promises/
+
+#### Tests
+Framework Installation protractor  
+Aufruf über Terminal mit
+```typescript 
+npm install -g protractor
+```
+
+Aufruf über Terminal mit
+```typescript 
+ng e2e
+```
+
+Beispiele 
+- https://www.protractortest.org/
+- https://entwickler.de/online/javascript/angular-testing-579793020.html
