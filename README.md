@@ -728,3 +728,12 @@ ng e2e
 Beispiele 
 - https://www.protractortest.org/
 - https://entwickler.de/online/javascript/angular-testing-579793020.html
+
+#### Struktur
+TODO
+#### Auslieferung
+TODO
+z.b. Prodmode
+Scripte mit Kürzeln für ng build etc...
+#### Eigene "Shared Modules"
+TODO
