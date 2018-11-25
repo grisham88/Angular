@@ -4,7 +4,8 @@
 
 ### ACHTUNG 
 Nutzung des Projekts
-Nach Abruf über git, bitte npm install oder npm update im Terminal durchführen, dann werden alle Module nachgeladen die notwendig sind
+- Nach Abruf über git, bitte npm install oder npm update im Terminal durchführen, dann werden alle Module nachgeladen die notwendig sind
+- Installierung von nodejs unter Windows notwendig um die Path Variable npm zu nutzen
 
 ### Hilfsfunktionen für VS Code
 - https://code.visualstudio.com/docs/getstarted/tips-and-tricks
