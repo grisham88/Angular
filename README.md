@@ -63,11 +63,28 @@ Beispiel: tcs "typescript - example.ts"
 Dadurch wird eine ausführbare .js-Datei erzeugt
 
 ### Javascript
+Installation: 
+```html
+npm install -g javascript
+```
+
 Ausführung:  
 Eingabe im Terminal node und name der Datei
 ```html
 Beispiel: node "typescript - example.js"
 ```
+
+### Bootstrap
+Installation: 
+```html
+npm install --save @ng-bootstrap/ng-bootstrap
+```
+
+### Jquery
+Installation: 
+```html
+npm install jquery --save
+``` 
 
 ### Angular
 #### Installation  
