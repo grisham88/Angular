@@ -1,13 +1,77 @@
 # Angular Seminar
 
-## Ausführung und Installation mittels Visual Studio Code
+#Inhalt
+<!-- vscode-markdown-toc -->
+* 1. [Ausführung und Installation mittels Visual Studio Code](#AusfhrungundInstallationmittelsVisualStudioCode)
+	* 1.1. [ACHTUNG](#ACHTUNG)
+	* 1.2. [Hilfsfunktionen für VS Code](#HilfsfunktionenfrVSCode)
+	* 1.3. [Extensions für VS Code](#ExtensionsfrVSCode)
+	* 1.4. [Emmet Cheatsheets](#EmmetCheatsheets)
+	* 1.5. [Debugen in Angular](#DebugeninAngular)
+	* 1.6. [TypeScript](#TypeScript)
+	* 1.7. [Javascript](#Javascript)
+	* 1.8. [Bootstrap](#Bootstrap)
+	* 1.9. [Jquery](#Jquery)
+	* 1.10. [Angular](#Angular)
+		* 1.10.1. [Installation](#Installation)
+		* 1.10.2. [Prüfung der Installation](#PrfungderInstallation)
+		* 1.10.3. [Server für das Angular Projekt starten](#ServerfrdasAngularProjektstarten)
+		* 1.10.4. [Cheatsheet](#Cheatsheet)
+* 2. [JavaScript](#JavaScript)
+* 3. [TypeScript](#TypeScript-1)
+	* 3.1. [TSLint](#TSLint)
+	* 3.2. [Variablen](#Variablen)
+		* 3.2.1. [var](#var)
+		* 3.2.2. [Variablen-Typen](#Variablen-Typen)
+	* 3.3. [Funktionen](#Funktionen)
+		* 3.3.1. [Optionale Angabe von Parametern](#OptionaleAngabevonParametern)
+		* 3.3.2. [Parameter mit eigenem Datentyp](#ParametermiteigenemDatentyp)
+* 4. [Angular](#Angular-1)
+	* 4.1. [Anlage eins Projekts](#AnlageeinsProjekts)
+	* 4.2. [Anlage einer Komponente](#AnlageeinerKomponente)
+	* 4.3. [Anlage einer Direktive](#AnlageeinerDirektive)
+	* 4.4. [Anlage einer Pipe](#AnlageeinerPipe)
+	* 4.5. [Anlage eines Services](#AnlageeinesServices)
+	* 4.6. [Wechseln zum Projekt](#WechselnzumProjekt)
+	* 4.7. [Aufbau des Projekts](#AufbaudesProjekts)
+	* 4.8. [Angular Anatomie](#AngularAnatomie)
+		* 4.8.1. [Module](#Module)
+		* 4.8.2. [Component](#Component)
+		* 4.8.3. [MVVM](#MVVM)
+		* 4.8.4. [Bindings](#Bindings)
+		* 4.8.5. [Directives (TwoWayBinding)](#DirectivesTwoWayBinding)
+		* 4.8.6. [Listen durchlaufen](#Listendurchlaufen)
+		* 4.8.7. [Class zur Laufzeit setzen](#ClasszurLaufzeitsetzen)
+		* 4.8.8. [Elemente anklicken und Events aufrufen](#ElementeanklickenundEventsaufrufen)
+		* 4.8.9. [Structural Directives](#StructuralDirectives)
+		* 4.8.10. [Zugriff auf Elemente](#ZugriffaufElemente)
+		* 4.8.11. [Arguments/Parameter](#ArgumentsParameter)
+		* 4.8.12. [Dependency Injection](#DependencyInjection)
+		* 4.8.13. [Directiven](#Directiven)
+		* 4.8.14. [String Templates](#StringTemplates)
+		* 4.8.15. [Objekte kopieren](#Objektekopieren)
+		* 4.8.16. [Services](#Services)
+		* 4.8.17. [Routes](#Routes)
+		* 4.8.18. [Callbacks](#Callbacks)
+		* 4.8.19. [Tests](#Tests)
+		* 4.8.20. [Struktur](#Struktur)
+		* 4.8.21. [Auslieferung](#Auslieferung)
+		* 4.8.22. [Eigene "Shared Modules"](#EigeneSharedModules)
 
-### ACHTUNG 
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+##  1. <a name='AusfhrungundInstallationmittelsVisualStudioCode'></a>Ausführung und Installation mittels Visual Studio Code
+
+###  1.1. <a name='ACHTUNG'></a>ACHTUNG 
 Nutzung des Projekts
 - Nach Abruf über git, bitte npm install oder npm update im Terminal durchführen, dann werden alle Module nachgeladen die notwendig sind
 - Installierung von nodejs unter Windows notwendig um die Path Variable npm zu nutzen
 
-### Hilfsfunktionen für VS Code
+###  1.2. <a name='HilfsfunktionenfrVSCode'></a>Hilfsfunktionen für VS Code
 - https://code.visualstudio.com/docs/getstarted/tips-and-tricks
 - https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 - https://code.visualstudio.com/docs/getstarted/keybindings
@@ -16,7 +80,7 @@ Nutzung des Projekts
     - Ohne > kann man nach Dateien suchen
 - STRG + B für Explorer links zuklappen
 
-### Extensions für VS Code
+###  1.3. <a name='ExtensionsfrVSCode'></a>Extensions für VS Code
 Installationen durchführen für folgende Extensions:
 - Angular Language Service
 - Debugger for Chrome
@@ -32,17 +96,17 @@ Installationen durchführen für folgende Extensions:
         - über F1 kann mittels "> Configure Display Language" die Spracheinstellung geändert werden
 - Über Datei bzw. File, Automatische Speichern/Autosave aktivieren
 
-### Emmet Cheatsheets
+###  1.4. <a name='EmmetCheatsheets'></a>Emmet Cheatsheets
 - https://docs.emmet.io/cheat-sheet/
 
-### Debugen in Angular
+###  1.5. <a name='DebugeninAngular'></a>Debugen in Angular
 - F5 betätigen
 - Chrome auswählen
 - Stoppen
 - Erzeugte launch.js editieren und den Port auf 4200 anpassen
 - Erneut F5 betätigen
 
-### TypeScript
+###  1.6. <a name='TypeScript'></a>TypeScript
 Installation:  
 - https://code.visualstudio.com/docs/languages/typescript
 - The easiest way to install TypeScript is through npm, the Node.js Package Manager. If you have npm installed, you can install TypeScript globally (-g) on your computer by:
@@ -62,7 +126,7 @@ Beispiel: tcs "typescript - example.ts"
 ```
 Dadurch wird eine ausführbare .js-Datei erzeugt
 
-### Javascript
+###  1.7. <a name='Javascript'></a>Javascript
 Installation: 
 ```html
 npm install -g javascript
@@ -74,20 +138,20 @@ Eingabe im Terminal node und name der Datei
 Beispiel: node "typescript - example.js"
 ```
 
-### Bootstrap
+###  1.8. <a name='Bootstrap'></a>Bootstrap
 Installation: 
 ```html
 npm install --save @ng-bootstrap/ng-bootstrap
 ```
 
-### Jquery
+###  1.9. <a name='Jquery'></a>Jquery
 Installation: 
 ```html
 npm install jquery --save
 ``` 
 
-### Angular
-#### Installation  
+###  1.10. <a name='Angular'></a>Angular
+####  1.10.1. <a name='Installation'></a>Installation  
 Eingabe im Terminal
 ```html
 npm install -g angular-cli
@@ -97,23 +161,23 @@ oder
 npm install @angular/cli --global
 ```
 
-#### Prüfung der Installation 
+####  1.10.2. <a name='PrfungderInstallation'></a>Prüfung der Installation 
 Eingabe im Terminal
 ```html
 ng --version
 ```
 
-#### Server für das Angular Projekt starten
+####  1.10.3. <a name='ServerfrdasAngularProjektstarten'></a>Server für das Angular Projekt starten
 Eingabe im Terminal
 ```html
 ng serve -o
 ```
 Website wird auf dem Server gestartet und geöffnet
 
-#### Cheatsheet
+####  1.10.4. <a name='Cheatsheet'></a>Cheatsheet
 - https://angular.io/guide/cheatsheet
 
-## JavaScript
+##  2. <a name='JavaScript'></a>JavaScript
 Wie ein Dictionary aufgebaut:
 ```javascript
 var person = { name = "Name"};
@@ -126,17 +190,17 @@ Dadurch wird direkt die Eigenschaft vorname für das Objekt person erzeugt
 ACHTUNG  
 Andersherum nicht möglich.
 
-## TypeScript
+##  3. <a name='TypeScript-1'></a>TypeScript
 Kompiliert aus dem TypeScript Code neuen ausführbaren JavaScript Code.
 
 Code testen:  
 - http://www.typescriptlang.org/play/
 
-### TSLint
+###  3.1. <a name='TSLint'></a>TSLint
 An extensible linter for the TypeScript language
 
-### Variablen
-#### var
+###  3.2. <a name='Variablen'></a>Variablen
+####  3.2.1. <a name='var'></a>var
 ```typescript
 var xyz = 'Brendan Eich';
 
@@ -147,7 +211,7 @@ Zuweisung des Strings zur Variable xyz macht die Variable zu einer String-Variab
 Nun sind alle Eigenschaften eines Typ Strings für die Variable verfügbar.  
 Erneute Zuweisung mit einem anderen Typ in TypeScript per Standard nicht möglich.  Variable ist jetzt ein String.
 
-#### Variablen-Typen
+####  3.2.2. <a name='Variablen-Typen'></a>Variablen-Typen
 ```typescript
 String text = 'text';
 boolean wahrheit=true;
@@ -156,7 +220,7 @@ object o = { name = 'Script'};
 undefined
 ```
 
-### Funktionen
+###  3.3. <a name='Funktionen'></a>Funktionen
 ```typescript
 function foo(text: string, nummer: number): string | number
 {
@@ -175,7 +239,7 @@ foo( text = "Text", nummer = 4);
 ACHTUNG  
 Überlandene Methoden mit verschiedenen Rückgabetypen oder Parameter Auflistung nicht vorhanden in JavaScript und TypeScript.
 
-#### Optionale Angabe von Parametern
+####  3.3.1. <a name='OptionaleAngabevonParametern'></a>Optionale Angabe von Parametern
 ```typescript
 //Optionale Angabe von company möglich
 function foo(name: string, company?: string): string | number
@@ -191,7 +255,7 @@ function foo(name: string, company?: string): string | number
 foo({ name = "Text"});
 ```
 
-#### Parameter mit eigenem Datentyp
+####  3.3.2. <a name='ParametermiteigenemDatentyp'></a>Parameter mit eigenem Datentyp
 ```typescript
 interface Company {
     name: string,
@@ -208,10 +272,10 @@ function foo(company: Company): string
 foo({ name: "Text", city: "Nuremberg"});
 ```
 
-## Angular
+##  4. <a name='Angular-1'></a>Angular
 Kürzel ng für Angular-cli
 exit
-### Anlage eins Projekts
+###  4.1. <a name='AnlageeinsProjekts'></a>Anlage eins Projekts
 Eingabe im Terminal:
 ```html
 ng new MyTodoApp
@@ -223,7 +287,7 @@ Which stylesheet format would you like to use?
 -> mittels Pfeiltaste auswählen und bestätigen
 ```
 
-### Anlage einer Komponente
+###  4.2. <a name='AnlageeinerKomponente'></a>Anlage einer Komponente
 ```html
 ng generate component todolist
 ```
@@ -243,7 +307,7 @@ Trägt die Komponente im App Module ein
 UPDATE src/app/app.module.ts (404 bytes)
 ```
 
-### Anlage einer Direktive
+###  4.3. <a name='AnlageeinerDirektive'></a>Anlage einer Direktive
 ```html
 ng generate directive AutoInputWidth
 ```
@@ -262,7 +326,7 @@ UPDATE src/app/app.module.ts (568 bytes)
 ```
 Kann anschließend als Attribut in allen Elementen genutzt werden
 
-### Anlage einer Pipe
+###  4.4. <a name='AnlageeinerPipe'></a>Anlage einer Pipe
 ```html
 ng generate directive AutoInputWidth
 ```
@@ -281,7 +345,7 @@ UPDATE src/app/app.module.ts (643 bytes)
 ```
 Kann anschließend als neue Pipe in den Bindings genutzt werden und eigene Konvertierungen angeben.
 
-### Anlage eines Services
+###  4.5. <a name='AnlageeinesServices'></a>Anlage eines Services
 ```html
 ng generate service chucknorris
 ```
@@ -335,14 +399,14 @@ export class ChucknorrisService {
 ```
 Der Service kann dann mittels private Deklarierung im constructor global genutzt werden
 
-### Wechseln zum Projekt
+###  4.6. <a name='WechselnzumProjekt'></a>Wechseln zum Projekt
 Eingabe im Terminal:
 ```html
 - Wechseln über "cd MyTodoApp" in das Verzeichnis
 - Mittels "code ." das Projekt in Visual Studio Code eigenständig öffnen
 ```
 
-### Aufbau des Projekts
+###  4.7. <a name='AufbaudesProjekts'></a>Aufbau des Projekts
 - e2e
     - end-to-end tests vorinstalliert
 - node_modules
@@ -372,9 +436,9 @@ Eingabe im Terminal:
         - Konfigurationsdatei für TSLint
             - tslint.json 
 
-### Angular Anatomie
+###  4.8. <a name='AngularAnatomie'></a>Angular Anatomie
 
-#### Module
+####  4.8.1. <a name='Module'></a>Module
 Vergleichbar mit Assemblies
 - Ausführbar (*.exe)
     - Application Module
@@ -387,7 +451,7 @@ Vergleichbar mit Assemblies
     - bootstrap
         - Startpunkt der App
 
-#### Component
+####  4.8.2. <a name='Component'></a>Component
 Vergleichbar mit UserControls
 - Sind eigenständige HTML-Elemente
 - Annotation @Component definiert das Component in der app.component.ts
@@ -407,7 +471,7 @@ Vergleichbar mit UserControls
     - Content
     - Footer
 
-#### MVVM
+####  4.8.3. <a name='MVVM'></a>MVVM
 Model-View-ViewModel
 
 - View -> HTML Dokument
@@ -426,7 +490,7 @@ Model-View-ViewModel
         addTodo() {  } -> OK Button-Aktion
         ```
 
-#### Bindings
+####  4.8.4. <a name='Bindings'></a>Bindings
 
 ##### Data-/Attribute-Binding
 Zur Kommunikation zwischen View und Model
@@ -454,7 +518,7 @@ Daten formatieren beim Data Binding
 ```
 Ermöglich, dass Bindings an dieser Stelle wie gewünscht dargestellt werden. In diesem Fall immer alle Buchstaben groß
 
-#### Directives (TwoWayBinding)
+####  4.8.5. <a name='DirectivesTwoWayBinding'></a>Directives (TwoWayBinding)
 Vergleichbar mit Markup Extensions
 - Vorhandene HTML-Elemente um Logik erweitern
 - Einbinden von FormsModule in der app.module.ts
@@ -467,14 +531,14 @@ Vergleichbar mit Markup Extensions
     <button (click)="addTodo()">
     ```
 
-#### Listen durchlaufen
+####  4.8.6. <a name='Listendurchlaufen'></a>Listen durchlaufen
 ```typescript
 <li *ngFor="let todo of todos; let i = index">
     {{ todo }} <button (click)="removeTodo(i)">X</button>
 </li>
 ```
 
-#### Class zur Laufzeit setzen
+####  4.8.7. <a name='ClasszurLaufzeitsetzen'></a>Class zur Laufzeit setzen
 ```typescript
 [ngClass]="{'selectItem': todoUpdateIndex === i}"
 ```
@@ -482,14 +546,14 @@ In den {} wird durch den Key der zugehörige Value abgefragt, dabei muss der Key
 Die Klasse die gesetzt werden soll, wird vor dem : gestellt.  
 Nach dem : wird die Bedingung gesetzt. Wird diese mit true zurückgegeben, wird die neue class für das Element gesetzt.
 
-#### Elemente anklicken und Events aufrufen
+####  4.8.8. <a name='ElementeanklickenundEventsaufrufen'></a>Elemente anklicken und Events aufrufen
 ```typescript
  <span (click)="editTodo(i)">
  ```
  Es ist möglich auf jedem Element ein click-Event zu abonnieren.  
  Dazu muss (click) gesetzt sein und dahinter die gewünschte Funktion die aufgerufen werden soll in "" gesetzt sein.
 
- #### Structural Directives
+####  4.8.9. <a name='StructuralDirectives'></a>Structural Directivess
  - *-Anweisungen (https://angular.io/guide/structural-directives) 
  - Manipulieren die Struktur (DOM)
 
@@ -501,7 +565,7 @@ Nach dem : wird die Bedingung gesetzt. Wird diese mit true zurückgegeben, wird 
     Durch *ngIf können Abfragen gebaut werden, das Element in dem die Abfrage ausgeführt wird, kann dann entsprechend handeln.  
     In diesem Fall wird das div nur angezeigt, wenn isEditMode, false ist.
 
- #### Zugriff auf Elemente
+####  4.8.10. <a name='ZugriffaufElemente'></a>Zugriff auf Elementee
  Zugriff über DOM (native)
 ```html
 <script>
@@ -517,7 +581,7 @@ $("h1")
 ACHTUNG  
 Im Vergleich dauert jQuery zum DOM-Zugriff zum Teil 40 mal länger
 
-#### Arguments/Parameter
+####  4.8.11. <a name='ArgumentsParameter'></a>Arguments/Parameter
 ```typescript
 function foo(paramA, paramB = "Kein Wert", paramC = "Kein Wert")
 {
@@ -540,11 +604,11 @@ foo(...values);
 - ... ermöglicht beliebig viele Parameter mitzugeben  
 - https://www.typescriptlang.org/docs/handbook/functions.html
 
-#### Dependency Injection
+####  4.8.12. <a name='DependencyInjection'></a>Dependency Injection
 - Übernimmt die Instanzierung von Klassen automatisch
 - https://angular.io/guide/dependency-injection
 
-#### Directiven
+####  4.8.13. <a name='Directiven'></a>Directiven
 ```typescript
 import { Directive, ElementRef } from '@angular/core';
 
@@ -563,7 +627,7 @@ export class AutoInputWidthDirective {
 Durch die Deklarierung eines Objekts vom erwarteten Typ und der Übernahme des nativeElement in das deklarierte Objekt ist ein Zugriff auf alle Eigenschaften möglich.  
 Dadurch wird Typsicherheit ermöglicht.
 
-#### String Templates
+####  4.8.14. <a name='StringTemplates'></a>String Templates
 ```typescript
 this.inputElement.style.width = `${width}px`;
 ```
@@ -573,14 +637,14 @@ this.inputElement.style.width = width + "px";
 ```
 Ermöglicht das Einfügen von Variablen direkt in einem String 
 
-#### Objekte kopieren
+####  4.8.15. <a name='Objektekopieren'></a>Objekte kopieren
 ```typescript
 var person = {name: "Brendan Eich"};
 var person2 = Object.assign({}, person)
 ```
 Dadurch wird eine Kopie von person angelegt, und das person2 Objekt ist komplett unabhängig von Änderungen des person-Objects.
 
-#### Services
+####  4.8.16. <a name='Services'></a>Services
 
 - Service anlegen mittels ng -> siehe Anlage Services
 - Nutzung von json2ts -> Erzeugtes Interface in der service.ts hinterlegen
@@ -616,7 +680,7 @@ Dadurch wird eine Kopie von person angelegt, und das person2 Objekt ist komplett
     ```
     Nun kann man auf das Property Value des Objekts zugreifen
 
-#### Routes
+####  4.8.17. <a name='Routes'></a>Routes
 Routen definieren unter app.module.ts mittels RouterModule
 ```typescript
 import { RouterModule } from '@angular/router';
@@ -726,12 +790,12 @@ Dadurch wird mit dem path '' (Website Einstieg) definiert, dass die TodolistComp
         ```
 
 
-#### Callbacks
+####  4.8.18. <a name='Callbacks'></a>Callbacks
 Sehr wichtiges Thema zum vertiefen
 - https://angular.de/artikel/angular2-observables/
 - https://angular.de/buecher/angularjs-buch/angularjs-promises/
 
-#### Tests
+####  4.8.19. <a name='Tests'></a>Tests
 Framework Installation protractor  
 Aufruf über Terminal mit
 ```typescript 
@@ -747,11 +811,11 @@ Beispiele
 - https://www.protractortest.org/
 - https://entwickler.de/online/javascript/angular-testing-579793020.html
 
-#### Struktur
+####  4.8.20. <a name='Struktur'></a>Struktur
 TODO
-#### Auslieferung
+####  4.8.21. <a name='Auslieferung'></a>Auslieferung
 TODO
 z.b. Prodmode
 Scripte mit Kürzeln für ng build etc...
-#### Eigene "Shared Modules"
+####  4.8.22. <a name='EigeneSharedModules'></a>Eigene "Shared Modules"
 TODO
